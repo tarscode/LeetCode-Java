@@ -7,13 +7,17 @@
 package com.leetcode;
 
 /**
- * 55. 跳跃游戏
+ * 题目:55. 跳跃游戏
+ * 思路:最后一个位置可以到达,说明每一个位置都可以到达
+ * 时间复杂度:O(n)
+ * 空间复杂度:O(n)
+ *
  * @author 刘洋
  */
 public class CanJump {
     public static void main(String[] args) {
-        int[] nums1 = {2,3,1,1,4};
-        int[] nums2 = {3,2,1,0,4};
+        int[] nums1 = {2, 3, 1, 1, 4};
+        int[] nums2 = {3, 2, 1, 0, 4};
         System.out.println(canJump(nums1));
         System.out.println(canJump(nums2));
     }
@@ -29,7 +33,11 @@ public class CanJump {
         for (int i = 0; i < len; i++) {
             // 判断当前位置是否可以到达
             if (res[i] == 0) {
-                break;
+                return false;
+            }
+            // 到达最后最后位置
+            if (i == len - 1) {
+                return true;
             }
             // 获取当前可以走的步数
             int cur = nums[i];
@@ -41,6 +49,20 @@ public class CanJump {
                 res[i + j] = 1;
             }
         }
-        return res[len - 1] == 1;
+        return false;
+    }
+
+    public static boolean canJump2(int[] nums) {
+        int len = nums.length;
+        int max = 0;// 记录当前最多可以往右走几步
+        for (int i = 0; i < len; i++) {
+            if (i <= max) {
+                max = Math.max(max, nums[i] + i);
+                if (max >= len - 1){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
