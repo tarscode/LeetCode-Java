@@ -1,1 +1,11 @@
 # Created by .ignore support plugin (hsz.mobi)
+.idea/leetcode/
+src/main/java/com/nowcoder/
+src/main/resources/
+src/test/
+target/classes/com/leetcode/LengthOfLongestSubstring.class
+target/classes/com/leetcode/MaxAreaOfIsland.class
+target/classes/com/leetcode/Merge.class
+target/classes/com/leetcode/MinSubArrayLen.class
+target/classes/com/leetcode/RestoreIpAddresses.class
+target/generated-sources/
